@@ -18,6 +18,24 @@ class HomeController extends BaseController {
 
  	}
 
+ 	private function chechIfAvailable($email){
+
+ 		$domain=explode("@",$email)[1];
+ 		$url = $domain;
+    		$ch = curl_init($url);
+	    	curl_setopt($ch, CURLOPT_NOBODY, true);
+	    	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	    	curl_exec($ch);
+	    	$retcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	    	curl_close($ch);
+	    	if (200==$retcode) {
+	        	return true;
+	    	} else {
+	        return false;
+	    	}
+
+ 	}
+
 	public function login(){
 
 		if(Session::token()!==Input::get('_token')){
@@ -70,6 +88,11 @@ class HomeController extends BaseController {
 		if(count(self::checkRegistered($mail))>0){
 			Session::put('reg_error',"<script>alert('User Already Registered!');</script>");
 			return Redirect::to('/');
+		}
+
+		if(!self::checkIfAvailable($mail)){
+			Session::put('reg_error',"<script>alert('Email is on invalid domain!');</script>");
+			return Redirect::to('/');	
 		}
 
 		DB::insert('insert into users values(?)',array($mail));
