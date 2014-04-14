@@ -18,7 +18,7 @@ class HomeController extends BaseController {
 
  	}
 
- 	private function chechIfAvailable($email){
+ 	private function checkIfAvailable($email){
 
  		$domain=explode("@",$email)[1];
  		$url = $domain;
