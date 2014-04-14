@@ -1,0 +1,44 @@
+.stitched {
+   padding: 20px;
+   margin: 10px;
+   background: #ddd;
+   color: #222;
+   font-size: 21px;
+   font-weight: bold;
+   line-height: 1.3em;
+   border: 2px dashed #111;
+   border-radius: 10px;
+   box-shadow: 0 0 0 4px #555, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
+   text-shadow: -1px -1px #aaa;
+   font-weight: normal;
+}
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+#loginform{
+	position: absolute;
+	width: 67%;
+	height: 30%;
+	border: 1px #000 groove;
+	top: 10%;
+	left: 15%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+#regform{
+	position: absolute;
+	width: 67%;
+	height: 30%;
+	border: 1px #000 groove;
+	top: 60%;
+	left: 15%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+#or{
+	position: absolute;
+	top: 45%;
+	left: 49%;
+}
